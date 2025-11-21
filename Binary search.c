@@ -1,8 +1,8 @@
-✅ Aim:
+Aim:
 To write a program that searches for a given element in a sorted array using the Binary Search technique.
 Binary search repeatedly divides the search interval into halves to quickly locate the target element.
 
-✅ Algorithm: Binary Search
+Algorithm:
 1. Start
 2. Read the size of the array (n)
 3. Read n sorted elements into the array
@@ -23,7 +23,7 @@ Else
 Print “Element not found”
 8. Stop
 
-✅ Program for Binary Search:
+Program:
 #include <stdio.h>
 int main() {
     int arr[50], n, i, key;
