@@ -1,4 +1,4 @@
-✅ Aim:
+Aim:
 To implement a Doubly Linked List in C and perform all major operations using a menu-driven switch-case program:
 Insert at beginning
 Insert at end
@@ -10,7 +10,7 @@ Forward display
 Reverse display
 Search an element
     
-✅algorithm:
+algorithm:
 1. Start
 Initialize head = NULL.
 2. Insert at Beginning
