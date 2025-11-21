@@ -1,6 +1,4 @@
-
 ✅ Aim
-
 To implement a stack using an array and perform basic stack operations:
 
 Push (insert element)
@@ -25,11 +23,6 @@ Display (show all elements)
 → top = top + 1
 → stack[top] = value
 
-
-
-
----
-
 2. POP (Delete Element)
 
 1. If top == -1
@@ -40,10 +33,6 @@ Display (show all elements)
 → value = stack[top]
 → top = top - 1
 
-
-
-
----
 
 3. PEEK (Top Element)
 
@@ -56,9 +45,6 @@ Display (show all elements)
 
 
 
-
----
-
 4. DISPLAY
 
 1. If top == -1
@@ -68,10 +54,6 @@ Display (show all elements)
 2. Else
 → Print elements from top to 0
 
-
-
-
----
 
 ✅ C Program: Stack Operations Using Array
 
@@ -165,3 +147,29 @@ int main() {
         }
     }
 }
+SAMPLE OUTPUT:
+--- STACK MENU ---
+Enter your choice: 1
+Enter value to push: 10
+10 pushed to stack
+
+Enter your choice: 1
+Enter value to push: 20
+20 pushed to stack
+
+Enter your choice: 1
+Enter value to push: 30
+30 pushed to stack
+
+Enter your choice: 4
+Stack elements: 30 20 10
+
+Enter your choice: 2
+30 popped from stack
+
+Enter your choice: 3
+Top element is 20
+    result:
+        After performing push → push → push → pop:
+        Final stack is:20 10
+        Top = 20 and hence we found the stack.
