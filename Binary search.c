@@ -6,23 +6,15 @@ Binary search repeatedly divides the search interval into halves to quickly loca
 
 1. Start
 
-
 2. Read the size of the array (n)
-
 
 3. Read n sorted elements into the array
 
-
 4. Read the element to be searched (key)
 
-
 5. Initialize:
-
 low = 0
-
 high = n - 1
-
-
 
 6. Repeat while low <= high
 
@@ -38,21 +30,14 @@ Else if key < arr[mid]
 Else
 → low = mid + 1
 
-
-
 7. If loop ends without finding the element
 
 Print “Element not found”
 
-
-
 8. Stop
 
-
-✅ C Program for Binary Search
-
+✅ Program for Binary Search:
 #include <stdio.h>
-
 int main() {
     int arr[50], n, i, key;
     int low, high, mid;
