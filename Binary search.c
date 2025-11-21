@@ -1,39 +1,26 @@
-✅ Aim
+✅ Aim:
 To write a program that searches for a given element in a sorted array using the Binary Search technique.
 Binary search repeatedly divides the search interval into halves to quickly locate the target element.
 
 ✅ Algorithm: Binary Search
-
 1. Start
-
 2. Read the size of the array (n)
-
 3. Read n sorted elements into the array
-
 4. Read the element to be searched (key)
-
 5. Initialize:
 low = 0
 high = n - 1
-
 6. Repeat while low <= high
-
 mid = (low + high) / 2
-
 If arr[mid] == key
 → Print “Element found at position mid”
 → Stop
-
 Else if key < arr[mid]
 → high = mid - 1
-
 Else
 → low = mid + 1
-
 7. If loop ends without finding the element
-
 Print “Element not found”
-
 8. Stop
 
 ✅ Program for Binary Search:
@@ -79,7 +66,8 @@ int main() {
 
     return 0;
 }
-output:
+
+OUTPUT:
 Roll | Name
 ----------------
 101  | Arjun
@@ -96,9 +84,10 @@ Record Found:
 Roll Number : 104
 Name        : Sita
 Position    : 4
-result:
+    
+    RESULT:
     Linear Search Result:
-The record with Roll Number 104 is found at index 3 (4th position).
+    The record with Roll Number 104 is found at index 3 (4th position).
 
 
 
