@@ -1,7 +1,4 @@
-
-
-✅ Aim
-
+✅ Aim:
 To implement a queue using an array and perform the following operations:
 
 Enqueue (insert element)
@@ -12,9 +9,6 @@ Peek/Front (first element)
 
 Display (show all elements)
 
-
-
----
 
 ✅ Algorithm: Queue Using Array
 
@@ -27,9 +21,6 @@ rear = -1
 size = maximum number of elements
 
 
-
----
-
 1. ENQUEUE (Insert Element)
 
 1. If rear == size - 1
@@ -40,11 +31,6 @@ size = maximum number of elements
 → rear = rear + 1
 → queue[rear] = value
 → If front == -1, set front = 0
-
-
-
-
----
 
 2. DEQUEUE (Delete Element)
 
@@ -58,9 +44,6 @@ size = maximum number of elements
 
 
 
-
----
-
 3. PEEK (Front Element)
 
 1. If queue empty
@@ -71,10 +54,6 @@ size = maximum number of elements
 → Print queue[front]
 
 
-
-
----
-
 4. DISPLAY
 
 1. If queue empty
@@ -83,10 +62,6 @@ size = maximum number of elements
 
 2. Else display elements from front to rear
 
-
-
-
----
 
 ✅ C Program: Queue Operations Using Array
 
@@ -182,3 +157,36 @@ int main() {
         }
     }
 }
+SAMPLE OUTPUT:
+--- Queue Menu ---
+1. Enqueue
+2. Dequeue
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value: 10
+Inserted 10
+
+Enter your choice: 1
+Enter value: 20
+Inserted 20
+
+Enter your choice: 1
+Enter value: 30
+Inserted 30
+
+Enter your choice: 3
+Queue Elements: 10 20 30
+
+Enter your choice: 2
+Deleted 10
+
+Enter your choice: 3
+Queue Elements: 20 30
+    result:
+        After performing operations:
+        Inserted: 10, 20, 30
+        Deleted: 10
+        Remaining queue:20 30
+        Front → 20
+        Rear → 30
