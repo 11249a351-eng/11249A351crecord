@@ -1,6 +1,4 @@
-
 ✅ Aim
-
 To implement a Doubly Linked List in C and perform all major operations using a menu-driven switch-case program:
 
 Insert at beginning
@@ -20,91 +18,163 @@ Forward display
 Reverse display
 
 Search an element
+    
+✅algorithm:
+1. Start
 
+Initialize head = NULL.
 
+2. Insert at Beginning
 
----
+Create a new node.
 
-✅ Node Structure
+If list is empty:
 
-Each node has:
+head = newnode
 
-prev → Pointer to previous node
+Else:
 
-data → Value
+newnode->next = head
 
-next → Pointer to next node
+head->prev = newnode
 
+head = newnode
 
+3. Insert at End
 
----
+Create new node.
+
+If list is empty:
+
+head = newnode
+
+Else:
+
+Traverse to last node.
+
+Update pointers:
+last->next = newnode
+newnode->prev = last
+
+4. Insert at Position
+
+Get position.
+
+Traverse till pos-1.
+
+Adjust next and prev pointers of surrounding nodes.
+
+Insert node.
+
+5. Delete at Beginning
+
+If list empty → print underflow.
+
+Else:
+
+Move head to head->next
+
+Free old head.
+
+6. Delete at End
+
+If list empty → underflow.
+
+Traverse to last node.
+
+Update prev->next = NULL.
+
+Free last node.
+
+7. Delete at Position
+
+Get position.
+
+Traverse to that node.
+
+Adjust surrounding links.
+
+Free the node.
+
+8. Display (Forward)
+
+Traverse from head and print using next.
+
+9. Display (Reverse)
+
+Go to last node.
+
+Traverse backwards using prev.
+
+10. Stop
 
 🚀 C Program: Doubly Linked List (All Operations – Switch Case)
-
 #include <stdio.h>
 #include <stdlib.h>
 
 struct Node {
     int data;
-    struct Node *next, *prev;
+    struct Node *prev, *next;
 };
 
-struct Node* head = NULL;
+struct Node *head = NULL;
 
-// Create new node
+// Create node
 struct Node* createNode(int value) {
     struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
     newnode->data = value;
-    newnode->next = NULL;
-    newnode->prev = NULL;
+    newnode->prev = newnode->next = NULL;
     return newnode;
 }
 
 // Insert at beginning
-void insertBeginning(int value) {
-    struct Node* newnode = createNode(value);
-
-    if (head != NULL) {
-        newnode->next = head;
-        head->prev = newnode;
-    }
-
-    head = newnode;
-    printf("%d inserted at beginning\n", value);
-}
-
-// Insert at end
-void insertEnd(int value) {
-    struct Node* newnode = createNode(value);
+void insertBeg(int value) {
+    struct Node *newnode = createNode(value);
 
     if (head == NULL) {
         head = newnode;
     } else {
-        struct Node* temp = head;
-        while (temp->next != NULL)
-            temp = temp->next;
-
-        temp->next = newnode;
-        newnode->prev = temp;
+        newnode->next = head;
+        head->prev = newnode;
+        head = newnode;
     }
-    printf("%d inserted at end\n", value);
+    printf("Inserted %d at beginning\n", value);
 }
 
-// Insert at specific position
-void insertPosition(int value, int pos) {
-    struct Node* newnode = createNode(value);
+// Insert at end
+void insertEnd(int value) {
+    struct Node *newnode = createNode(value);
 
-    if (pos == 1) {
-        insertBeginning(value);
+    if (head == NULL) {
+        head = newnode;
         return;
     }
 
-    struct Node* temp = head;
+    struct Node *temp = head;
+    while (temp->next != NULL)
+        temp = temp->next;
+
+    temp->next = newnode;
+    newnode->prev = temp;
+
+    printf("Inserted %d at end\n", value);
+}
+
+// Insert at position
+void insertPos(int value, int pos) {
+    struct Node *newnode = createNode(value);
+
+    if (pos == 1) {
+        insertBeg(value);
+        return;
+    }
+
+    struct Node *temp = head;
     for (int i = 1; i < pos - 1 && temp != NULL; i++)
         temp = temp->next;
 
     if (temp == NULL) {
-        printf("Invalid position\n");
+        printf("Invalid Position\n");
         return;
     }
 
@@ -116,59 +186,62 @@ void insertPosition(int value, int pos) {
 
     temp->next = newnode;
 
-    printf("%d inserted at position %d\n", value, pos);
+    printf("Inserted %d at position %d\n", value, pos);
 }
 
-// Delete from beginning
-void deleteBeginning() {
+// Delete at beginning
+void deleteBeg() {
     if (head == NULL) {
-        printf("List is empty\n");
+        printf("List Empty\n");
         return;
     }
 
-    struct Node* temp = head;
-    head = head->next;
+    struct Node *temp = head;
+    printf("Deleted %d from beginning\n", temp->data);
 
+    head = head->next;
     if (head != NULL)
         head->prev = NULL;
 
-    printf("Deleted %d from beginning\n", temp->data);
     free(temp);
 }
 
-// Delete from end
+// Delete at end
 void deleteEnd() {
     if (head == NULL) {
-        printf("List is empty\n");
+        printf("List Empty\n");
         return;
     }
 
-    struct Node* temp = head;
+    struct Node *temp = head;
+
+    if (temp->next == NULL) {
+        printf("Deleted %d from end\n", temp->data);
+        free(temp);
+        head = NULL;
+        return;
+    }
 
     while (temp->next != NULL)
         temp = temp->next;
 
-    if (temp->prev == NULL) {
-        head = NULL;
-    } else {
-        temp->prev->next = NULL;
-    }
-
     printf("Deleted %d from end\n", temp->data);
+
+    temp->prev->next = NULL;
     free(temp);
 }
 
-// Delete from specific position
-void deletePosition(int pos) {
+// Delete at position
+void deletePos(int pos) {
     if (head == NULL) {
-        printf("List is empty\n");
+        printf("List Empty\n");
         return;
     }
 
-    struct Node* temp = head;
+    struct Node *temp = head;
 
     if (pos == 1) {
-        deleteBeginning();
+        deleteBeg();
         return;
     }
 
@@ -176,9 +249,11 @@ void deletePosition(int pos) {
         temp = temp->next;
 
     if (temp == NULL) {
-        printf("Invalid position\n");
+        printf("Invalid Position\n");
         return;
     }
+
+    printf("Deleted %d from position %d\n", temp->data, pos);
 
     if (temp->prev != NULL)
         temp->prev->next = temp->next;
@@ -186,62 +261,42 @@ void deletePosition(int pos) {
     if (temp->next != NULL)
         temp->next->prev = temp->prev;
 
-    printf("Deleted %d from position %d\n", temp->data, pos);
     free(temp);
-}
-
-// Search an element
-void search(int key) {
-    struct Node* temp = head;
-    int pos = 1;
-
-    while (temp != NULL) {
-        if (temp->data == key) {
-            printf("Element %d found at position %d\n", key, pos);
-            return;
-        }
-        temp = temp->next;
-        pos++;
-    }
-
-    printf("Element %d not found\n", key);
 }
 
 // Display forward
 void displayForward() {
-    struct Node* temp = head;
-
+    struct Node *temp = head;
     if (temp == NULL) {
-        printf("List is empty\n");
+        printf("List Empty\n");
         return;
     }
 
-    printf("Doubly Linked List (Forward): ");
+    printf("List (Forward): ");
     while (temp != NULL) {
-        printf("%d <-> ", temp->data);
+        printf("%d ", temp->data);
         temp = temp->next;
     }
-    printf("NULL\n");
+    printf("\n");
 }
 
 // Display reverse
 void displayReverse() {
-    struct Node* temp = head;
-
-    if (temp == NULL) {
-        printf("List is empty\n");
+    if (head == NULL) {
+        printf("List Empty\n");
         return;
     }
 
+    struct Node *temp = head;
     while (temp->next != NULL)
         temp = temp->next;
 
-    printf("Doubly Linked List (Reverse): ");
+    printf("List (Reverse): ");
     while (temp != NULL) {
-        printf("%d <-> ", temp->data);
+        printf("%d ", temp->data);
         temp = temp->prev;
     }
-    printf("NULL\n");
+    printf("\n");
 }
 
 int main() {
@@ -249,24 +304,17 @@ int main() {
 
     while (1) {
         printf("\n--- Doubly Linked List Menu ---\n");
-        printf("1. Insert at Beginning\n");
-        printf("2. Insert at End\n");
-        printf("3. Insert at Position\n");
-        printf("4. Delete from Beginning\n");
-        printf("5. Delete from End\n");
-        printf("6. Delete from Position\n");
-        printf("7. Search Element\n");
-        printf("8. Display Forward\n");
-        printf("9. Display Reverse\n");
-        printf("10. Exit\n");
-        printf("Enter your choice: ");
+        printf("1. Insert at Beginning\n2. Insert at End\n3. Insert at Position\n");
+        printf("4. Delete at Beginning\n5. Delete at End\n6. Delete at Position\n");
+        printf("7. Display Forward\n8. Display Reverse\n9. Exit\n");
+        printf("Enter choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
                 printf("Enter value: ");
                 scanf("%d", &value);
-                insertBeginning(value);
+                insertBeg(value);
                 break;
 
             case 2:
@@ -276,13 +324,13 @@ int main() {
                 break;
 
             case 3:
-                printf("Enter value and position: ");
+                printf("Enter value & position: ");
                 scanf("%d %d", &value, &pos);
-                insertPosition(value, pos);
+                insertPos(value, pos);
                 break;
 
             case 4:
-                deleteBeginning();
+                deleteBeg();
                 break;
 
             case 5:
@@ -290,30 +338,73 @@ int main() {
                 break;
 
             case 6:
-                printf("Enter position to delete: ");
+                printf("Enter position: ");
                 scanf("%d", &pos);
-                deletePosition(pos);
+                deletePos(pos);
                 break;
 
             case 7:
-                printf("Enter value to search: ");
-                scanf("%d", &value);
-                search(value);
-                break;
-
-            case 8:
                 displayForward();
                 break;
 
-            case 9:
+            case 8:
                 displayReverse();
                 break;
 
-            case 10:
+            case 9:
                 return 0;
 
             default:
-                printf("Invalid choice!\n");
+                printf("Invalid Choice\n");
         }
     }
 }
+SAMPLE OUTPUT:
+mathematica
+Copy code
+--- Doubly Linked List Menu ---
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete at Beginning
+5. Delete at End
+6. Delete at Position
+7. Display Forward
+8. Display Reverse
+9. Exit
+Enter choice: 1
+Enter value: 10
+Inserted 10 at beginning
+
+Enter choice: 2
+Enter value: 20
+Inserted 20 at end
+
+Enter choice: 2
+Enter value: 30
+Inserted 30 at end
+
+Enter choice: 3
+Enter value & position: 25 3
+Inserted 25 at position 3
+
+Enter choice: 7
+List (Forward): 10 20 25 30
+
+Enter choice: 5
+Deleted 30 from end
+
+Enter choice: 4
+Deleted 10 from beginning
+
+Enter choice: 7
+List (Forward): 20 25
+
+Enter choice: 8
+List (Reverse): 25 20
+    result:
+        After all operations, the list contains:
+                                        20 → 25
+                                        Head = 20
+                                        Last node = 25
+Doubly linked traversal possible both ways and we found all list in the given menu.
