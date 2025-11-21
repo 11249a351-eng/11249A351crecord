@@ -1,11 +1,6 @@
-
-
 ✅ Aim
 
 To implement a Circular Queue using a linked list and perform basic queue operations such as insertion, deletion, and display using dynamic memory allocation.
-
-
----
 
 ✅ Algorithm
 
@@ -78,13 +73,8 @@ free(temp)
 3. Print each node’s data
 
 
-
-
----
-
 ✅ C Program: Circular Queue Using Linked List
-
-#include <stdio.h>
+      #include <stdio.h>
 #include <stdlib.h>
 
 struct Node {
@@ -94,101 +84,91 @@ struct Node {
 
 struct Node *front = NULL, *rear = NULL;
 
-// Insert element
 void enqueue(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
-    newNode->next = NULL;
 
-    if (front == NULL) {   // Queue empty
+    if (front == NULL) {
         front = rear = newNode;
-        rear->next = front;  // Circular link
+        rear->next = front;
     } else {
         rear->next = newNode;
         rear = newNode;
-        rear->next = front;  // Maintain circular structure
+        rear->next = front;
     }
 
-    printf("%d inserted into circular queue.\n", value);
+    printf("Inserted %d\n", value);
 }
 
-// Delete element
 void dequeue() {
     if (front == NULL) {
-        printf("Queue Underflow! Nothing to delete.\n");
-        return;
-    }
-
-    int value;
-
-    // Only one node
-    if (front == rear) {
-        value = front->data;
+        printf("Queue is Empty\n");
+    } 
+    else if (front == rear) {
+        printf("Deleted %d\n", front->data);
         free(front);
         front = rear = NULL;
-    } else {
+    } 
+    else {
         struct Node* temp = front;
-        value = temp->data;
+        printf("Deleted %d\n", temp->data);
         front = front->next;
-        rear->next = front;  // Maintain circular link
+        rear->next = front;
         free(temp);
     }
-
-    printf("Deleted element: %d\n", value);
 }
 
-// Display queue
 void display() {
     if (front == NULL) {
-        printf("Circular Queue is Empty.\n");
+        printf("Queue is Empty\n");
         return;
     }
 
     struct Node* temp = front;
-
-    printf("Circular Queue elements:\n");
+    printf("Queue Elements: ");
     do {
-        printf("%d -> ", temp->data);
+        printf("%d ", temp->data);
         temp = temp->next;
     } while (temp != front);
-
-    printf("(back to front)\n");
+    printf("\n");
 }
 
 int main() {
-    int choice, value;
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    
+    display();
 
-    while (1) {
-        printf("\n--- Circular Queue Using Linked List ---\n");
-        printf("1. Insert (Enqueue)\n");
-        printf("2. Delete (Dequeue)\n");
-        printf("3. Display\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+    dequeue();
+    dequeue();
 
-        switch (choice) {
-            case 1:
-                printf("Enter value: ");
-                scanf("%d", &value);
-                enqueue(value);
-                break;
+    display();
 
-            case 2:
-                dequeue();
-                break;
+    enqueue(40);
+    enqueue(50);
 
-            case 3:
-                display();
-                break;
-
-            case 4:
-                exit(0);
-
-            default:
-                printf("Invalid choice! Try again.\n");
-        }
-    }
+    display();
 
     return 0;
 }
+
+output:
+Inserted 10
+Inserted 20
+Inserted 30
+Queue Elements: 10 20 30
+Deleted 10
+Deleted 20
+Queue Elements: 30
+Inserted 40
+Inserted 50
+Queue Elements: 30 40 50
+
+    Final Circular Queue content
+30 → 40 → 50 → (back to 30)
+
+Front = 30
+Rear = 50
+    result:
+        hence we found the front and rear using circular queue by linked list.
