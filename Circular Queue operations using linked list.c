@@ -1,7 +1,7 @@
-✅ Aim:
+Aim:
 To implement a Circular Queue using a linked list and perform basic queue operations such as insertion, deletion, and display using dynamic memory allocation.
 
-✅ Algorithm
+Algorithm
 1. Insert (Enqueue)
 1. Create a new node
 2. If queue is empty:
