@@ -1,7 +1,7 @@
-✅ Aim:
+Aim:
 To convert a given infix expression (e.g., A + B * C) into a postfix expression (e.g., ABC*+) using a stack, based on operator precedence and associativity.
 
-✅ Algorithm: Infix to Postfix (Using Stack)
+Algorithm: Infix to Postfix (Using Stack)
 Let S be the stack and P be the postfix string.
 
 1. Scan the infix expression from left to right.
