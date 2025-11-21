@@ -1,107 +1,53 @@
-✅ Aim
+Aim:
 To implement a Singly Linked List in C and perform all major operations using a menu-driven program:
-
 Insert at beginning
-
 Insert at end
-
 Insert at specific position
-
 Delete from beginning
-
 Delete from end
-
 Delete from specific position
-
 Search an element
-
 Display the list
 
-
-✅ Algorithm (Major Operations)
-
+Algorithm (Major Operations):
 1. Insert at Beginning
-
 1. Create a new node
-
-
 2. Set newnode->next = head
-
-
 3. Set head = newnode
 
-
-
 2. Insert at End
-
 1. Create a new node
-
-
 2. Traverse to last node
-
-
 3. Set last->next = newnode
-
-
-
+    
 3. Insert at Position
-
 1. Traverse to node before desired position
-
-
 2. Set newnode->next = temp->next
-
-
 3. Set temp->next = newnode
 
 
-
 4. Delete from Beginning
-
 1. Store head in temp
-
-
 2. Set head = head->next
-
-
 3. Free temp
 
-
 5. Delete from End
-
 1. Traverse to second last node
-
-
 2. Set temp->next = NULL
-
-
 3. Free last node
 
-
-
 6. Delete from Position
-
 1. Traverse to previous node
-
-
 2. Adjust links
-
-
 3. Free the node
 
-
 7. Search
-
 Traverse list and compare each element.
-
-
+    
 8. Display
-
 Traverse and print each node.
 
-
-✅ C Program: Singly Linked List (All Operations – Switch Case)
-
+Program: Singly Linked List (All Operations – Switch Case)
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -328,7 +274,8 @@ int main() {
         }
     }
 }
-SAMPLE OUTPUT:
+
+OUTPUT:
 --- Singly Linked List Menu ---
 Enter choice: 1
 Enter value: 10
@@ -357,7 +304,8 @@ Deleted 10 from beginning
 
 Enter choice: 7
 Linked List: 20 25
-    result:
+    
+         RESULT:
          After performing all operations, the linked list contains:20 → 25
          Head = 20
          Last node = 25.
