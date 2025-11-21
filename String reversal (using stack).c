@@ -1,106 +1,67 @@
+AIM:
+To write a C program to reverse a given string using stack operations.
 
-
-✅ Aim
-
-To reverse a given string using stack operations, demonstrating the LIFO (Last In, First Out) property of a stack.
-
-
----
-
-✅ Algorithm: String Reversal Using Stack
-
+ALGORITHM:
 1. Start
-
-
 2. Read the input string
+3. Push each character of the string into a stack
+4. Pop characters from stack and store them back into the string
+Since stack uses LIFO, the string becomes reversed.
+5. Display reversed string
+6. End
 
-
-3. Create a stack (array of characters)
-
-
-4. For each character in the string:
-
-Push the character onto the stack
-
-
-
-5. Initialize an empty string for the reversed result
-
-
-6. While the stack is not empty:
-
-Pop each character and append it to the reversed string
-
-
-
-7. Display the reversed string
-
-
-8. Stop
-
-
-
-
----
-
-✅ C Program: String Reversal Using Stack
-
+PROGRAM — String Reversal Using Stack:
 #include <stdio.h>
 #include <string.h>
+#define MAX 100
 
-#define SIZE 100
-
-char stack[SIZE];
+char stack[MAX];
 int top = -1;
 
-// Push function
-void push(char c) {
-    if (top == SIZE - 1) {
+// Push operation
+void push(char ch) {
+    if (top == MAX - 1) {
         printf("Stack Overflow\n");
-    } else {
-        stack[++top] = c;
+        return;
     }
+    stack[++top] = ch;
 }
 
-// Pop function
+// Pop operation
 char pop() {
     if (top == -1) {
-        return '\0';  // stack empty
-    } else {
-        return stack[top--];
+        printf("Stack Underflow\n");
+        return '\0';
     }
+    return stack[top--];
 }
 
 int main() {
-    char str[SIZE];
-    char reversed[SIZE];
+    char str[MAX];
     int i;
 
     printf("Enter a string: ");
-    gets(str);  // (For simplicity in small programs)
+    scanf("%s", str);
 
-    // Push characters into stack
-    for (i = 0; str[i] != '\0'; i++) {
+    // Push all characters
+    for (i = 0; i < strlen(str); i++) {
         push(str[i]);
     }
 
-    // Pop characters to reverse string
-    for (i = 0; top != -1; i++) {
-        reversed[i] = pop();
+    // Pop all characters to reverse
+    for (i = 0; i < strlen(str); i++) {
+        str[i] = pop();
     }
-    reversed[i] = '\0';  // Null terminate reversed string
 
-    printf("Reversed string: %s\n", reversed);
+    printf("Reversed string: %s\n", str);
 
     return 0;
 }
 
-
-
-✔ Example
-
-Input: HELLO
-Stack pushes: H → E → L → L → O
-Pop order: O → L → L → E → H
-Output: OLLEH
-
+SAMPLE OUTPUT:
+Enter a string: HELLO
+Reversed string: OLLEH
+     result:
+       Input string HELLO becomes:
+       OLLEH
+       The string is successfully reversed using stack operations (push/pop).
