@@ -3,37 +3,20 @@ To write a program that searches for a given element in an array using the Linea
 Linear Search checks each element of the array one by one until the desired element is found or the list ends.
 
 ✅ Algorithm: Linear Search
-
 1. Start
-
 2. Read the size of the array (n)
-
 3. Read n elements into the array
-
-
 4. Read the element to be searched (key)
-
-
 5. Repeat for i = 0 to n-1
-
 If array[i] == key
-
 Print “Element found at position i”
-
 Stop
-
-
 6. If the loop ends without finding the key
-
 Print “Element not found”
-
-
 7. Stop
 
-
-✅ C Program for Linear Search
+Program for Linear Search:
 #include <stdio.h>
-
 int main() {
     int arr[100], n, i, key;
 
@@ -64,13 +47,14 @@ int main() {
 
     return 0; 
 }
-SAMPLE OUTPUT:
+
+OUTPUT:
 Enter number of elements: 5
 Enter 5 elements:
 10 25 30 45 50
 Enter element to search: 45
 Element 45 found at position 4
-    result:
+          RESULT:
           For the input array:10 25 30 45 50
           Searching for:45
           Linear search found the element at position 4.
