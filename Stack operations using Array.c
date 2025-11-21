@@ -1,11 +1,11 @@
-✅ Aim:
+Aim:
 To implement a stack using an array and perform basic stack operations:
 Push (insert element)
 Pop (delete element)
 Peek / Top (display top element)
 Display (show all elements)
 
-✅ Algorithm: Stack Using Array
+Algorithm: Stack Using Array
 1. PUSH (Insert Element)
 1. If top == size - 1
 → Stack Overflow
