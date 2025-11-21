@@ -1,4 +1,4 @@
-✅ Aim
+✅ Aim:
 To write a program that searches for a given element in an array using the Linear Search technique.
 Linear Search checks each element of the array one by one until the desired element is found or the list ends.
 
