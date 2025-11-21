@@ -172,4 +172,4 @@ Top element is 20
     result:
         After performing push → push → push → pop:
         Final stack is:20 10
-        Top = 20 and hence we found the stack.
+        Top = 20 and hence we found the stack using array.
