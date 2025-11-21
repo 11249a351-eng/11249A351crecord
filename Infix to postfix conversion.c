@@ -1,8 +1,5 @@
-
 ✅ Aim
-
 To convert a given infix expression (e.g., A + B * C) into a postfix expression (e.g., ABC*+) using a stack, based on operator precedence and associativity.
-
 
 ✅ Algorithm: Infix to Postfix (Using Stack)
 
@@ -123,3 +120,12 @@ int main() {
 
     return 0;
 }
+SAMPLE OUTPUT
+Enter Infix Expression: A+(B*C-(D/E^F)*G)*H
+Postfix Expression: ABC*DEF^/G*-H*+
+    For the input:
+A+(B*C-(D/E^F)*G)*H
+The postfix expression is:
+ABC*DEF^/G*-H*+
+    result:
+This is the correct postfix conversion, following operator precedence and associativity.
