@@ -58,10 +58,10 @@ int main() {
     return 0;
 }
 
-SAMPLE OUTPUT:
+OUTPUT:
 Enter a string: HELLO
 Reversed string: OLLEH
-     result:
+       RESULT:
        Input string HELLO becomes:
        OLLEH
        The string is successfully reversed using stack operations (push/pop).
