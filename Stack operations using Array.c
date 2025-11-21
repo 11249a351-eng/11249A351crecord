@@ -1,40 +1,27 @@
 ✅ Aim
 To implement a stack using an array and perform basic stack operations:
-
 Push (insert element)
-
 Pop (delete element)
-
 Peek / Top (display top element)
-
 Display (show all elements)
-
-
 
 ✅ Algorithm: Stack Using Array
 
 1. PUSH (Insert Element)
-
 1. If top == size - 1
 → Stack Overflow
-
 
 2. Else
 → top = top + 1
 → stack[top] = value
-
 2. POP (Delete Element)
-
 1. If top == -1
 → Stack Underflow
-
-
 2. Else
 → value = stack[top]
 → top = top - 1
 
-
-3. PEEK (Top Element)
+3. PEEK (top Element)
 
 1. If top == -1
 → Stack is empty
@@ -42,8 +29,6 @@ Display (show all elements)
 
 2. Else
 → Print stack[top]
-
-
 
 4. DISPLAY
 
@@ -55,8 +40,7 @@ Display (show all elements)
 → Print elements from top to 0
 
 
-✅ C Program: Stack Operations Using Array
-
+✅ C Program: Stack Operations Using Array:
 #include <stdio.h>
 #define SIZE 50
 
