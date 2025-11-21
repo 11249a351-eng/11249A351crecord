@@ -1,8 +1,8 @@
-✅ Aim:
+Aim:
 To write a program that searches for a given element in an array using the Linear Search technique.
 Linear Search checks each element of the array one by one until the desired element is found or the list ends.
 
-✅ Algorithm: Linear Search
+Algorithm: 
 1. Start
 2. Read the size of the array (n)
 3. Read n elements into the array
@@ -15,7 +15,7 @@ Stop
 Print “Element not found”
 7. Stop
 
-Program for Linear Search:
+Program:
 #include <stdio.h>
 int main() {
     int arr[100], n, i, key;
@@ -54,6 +54,7 @@ Enter 5 elements:
 10 25 30 45 50
 Enter element to search: 45
 Element 45 found at position 4
+    
           RESULT:
           For the input array:10 25 30 45 50
           Searching for:45
