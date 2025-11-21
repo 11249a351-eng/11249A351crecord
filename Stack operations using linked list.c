@@ -23,7 +23,6 @@ Algorithm:
 Program: Stack Operations Using Linked List
 #include <stdio.h>
 #include <stdlib.h>
-
 struct Node {
     int data;
     struct Node* next;
@@ -153,6 +152,7 @@ Enter choice: 2
 
 Enter choice: 3
 Top element is 20
+ 
            RESULT:
            After pushing 10, 20, 30 and popping once, the stack becomes:20 10
            Top = 20 and hence we found the stack using linked list.
