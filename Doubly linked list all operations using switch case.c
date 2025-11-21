@@ -1,114 +1,63 @@
-✅ Aim
+✅ Aim:
 To implement a Doubly Linked List in C and perform all major operations using a menu-driven switch-case program:
-
 Insert at beginning
-
 Insert at end
-
 Insert at specific position
-
 Delete from beginning
-
 Delete from end
-
 Delete from specific position
-
 Forward display
-
 Reverse display
-
 Search an element
     
 ✅algorithm:
 1. Start
-
 Initialize head = NULL.
-
 2. Insert at Beginning
-
 Create a new node.
-
 If list is empty:
-
 head = newnode
-
 Else:
-
-newnode->next = head
-
-head->prev = newnode
-
+newnode>next = head
+head>prev = newnode
 head = newnode
-
 3. Insert at End
-
 Create new node.
-
 If list is empty:
-
 head = newnode
-
 Else:
-
 Traverse to last node.
-
 Update pointers:
 last->next = newnode
 newnode->prev = last
-
 4. Insert at Position
-
 Get position.
-
 Traverse till pos-1.
-
 Adjust next and prev pointers of surrounding nodes.
-
 Insert node.
-
 5. Delete at Beginning
-
 If list empty → print underflow.
-
 Else:
-
 Move head to head->next
-
 Free old head.
-
 6. Delete at End
-
 If list empty → underflow.
-
 Traverse to last node.
-
 Update prev->next = NULL.
-
 Free last node.
-
 7. Delete at Position
-
 Get position.
-
 Traverse to that node.
-
 Adjust surrounding links.
-
 Free the node.
-
 8. Display (Forward)
-
 Traverse from head and print using next.
-
 9. Display (Reverse)
-
 Go to last node.
-
 Traverse backwards using prev.
-
 10. Stop
-
-🚀 C Program: Doubly Linked List (All Operations – Switch Case)
+    
+ Program: Doubly Linked List (All Operations – Switch Case)
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -359,7 +308,8 @@ int main() {
         }
     }
 }
-SAMPLE OUTPUT:
+
+OUTPUT:
 mathematica
 Copy code
 --- Doubly Linked List Menu ---
@@ -402,9 +352,10 @@ List (Forward): 20 25
 
 Enter choice: 8
 List (Reverse): 25 20
-    result:
+    
+        RESULT:
         After all operations, the list contains:
                                         20 → 25
                                         Head = 20
                                         Last node = 25
-Doubly linked traversal possible both ways and we found all list in the given menu.
+        Doubly linked traversal possible both ways and we found all list in the given menu.
