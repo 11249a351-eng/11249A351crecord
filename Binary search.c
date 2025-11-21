@@ -1,11 +1,6 @@
-
 ✅ Aim
-
 To write a program that searches for a given element in a sorted array using the Binary Search technique.
 Binary search repeatedly divides the search interval into halves to quickly locate the target element.
-
-
----
 
 ✅ Algorithm: Binary Search
 
@@ -99,3 +94,36 @@ int main() {
 
     return 0;
 }
+output:
+Roll | Name
+----------------
+101  | Arjun
+102  | Meera
+103  | Rohan
+104  | Sita
+105  | Ali
+Search for Roll Number = 104
+Check record 1 → Roll 101 ≠ 104
+Check record 2 → Roll 102 ≠ 104
+Check record 3 → Roll 103 ≠ 104
+Check record 4 → Roll 104 = 104  → MATCH FOUND
+Record Found:
+Roll Number : 104
+Name        : Sita
+Position    : 4
+result:
+    Linear Search Result:
+The record with Roll Number 104 is found at index 3 (4th position).
+
+
+
+
+
+
+
+
+
+
+
+
+
