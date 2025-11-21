@@ -1,80 +1,34 @@
-✅ Aim
-
+✅ Aim:
 To implement a Circular Queue using a linked list and perform basic queue operations such as insertion, deletion, and display using dynamic memory allocation.
 
 ✅ Algorithm
-
 1. Insert (Enqueue)
-
 1. Create a new node
-
-
 2. If queue is empty:
-
 front = rear = newNode
-
 rear->next = front
-
-
-
 3. Else
-
 rear->next = newNode
-
 rear = newNode
-
 rear->next = front
-
-
-
-
-
----
-
 2. Delete (Dequeue)
-
 1. If queue is empty → print "Queue Underflow"
-
-
 2. If only one node (front == rear):
-
 Store the value
-
 free the node
-
 front = rear = NULL
-
-
-
 3. Else
-
 temp = front
-
 front = front->next
-
 rear->next = front
-
 free(temp)
-
-
-
-
-
----
-
 3. Display
-
 1. If queue is empty → print "Queue Empty"
-
-
 2. Start from front and traverse until you reach front again
-
-
 3. Print each node’s data
 
-
-✅ C Program: Circular Queue Using Linked List
-      #include <stdio.h>
+Program: Circular Queue Using Linked List
+#include <stdio.h>
 #include <stdlib.h>
 
 struct Node {
@@ -153,7 +107,7 @@ int main() {
     return 0;
 }
 
-output:
+OUTPUT:
 Inserted 10
 Inserted 20
 Inserted 30
@@ -170,5 +124,6 @@ Queue Elements: 30 40 50
 
 Front = 30
 Rear = 50
-    result:
+      
+        RESULT:
         hence we found the front and rear using circular queue by linked list.
