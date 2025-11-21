@@ -1,7 +1,7 @@
 AIM:
 To write a C program to perform Breadth-First Search (BFS) traversal (also called Level-Order Traversal) on a binary tree using a queue.
 
-🧠 ALGORITHM
+ALGORITHM:
 1. Start
 2. Create a binary tree
 Each node contains data, left child, and right child pointers.
