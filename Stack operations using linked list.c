@@ -1,10 +1,5 @@
-
 ✅ Aim
-
 To implement stack operations (Push, Pop, Peek, Display) using a linked list in C and demonstrate the working of stack using dynamic memory allocation.
-
-
----
 
 ✅ Algorithm
 
@@ -22,10 +17,6 @@ To implement stack operations (Push, Pop, Peek, Display) using a linked list in 
 4. Update top = new node
 
 
-
-
----
-
 2. Pop Operation
 
 1. If top == NULL → Stack Underflow
@@ -41,10 +32,6 @@ Free the old top node
 
 
 
-
-
----
-
 3. Peek Operation
 
 1. If top == NULL → print “Stack Empty”
@@ -54,9 +41,6 @@ Free the old top node
 
 
 
-
----
-
 4. Display Operation
 
 1. If top == NULL → print “Stack Empty”
@@ -64,10 +48,6 @@ Free the old top node
 
 2. Traverse from top to bottom and print each node
 
-
-
-
----
 
 ✅ C Program: Stack Operations Using Linked List
 
@@ -180,3 +160,29 @@ int main() {
 
     return 0;
 }
+SAMPLE OUTPUT
+--- STACK MENU (Linked List) ---
+Enter choice: 1
+Enter value to push: 10
+10 pushed to stack
+
+Enter choice: 1
+Enter value to push: 20
+20 pushed to stack
+
+Enter choice: 1
+Enter value to push: 30
+30 pushed to stack
+
+Enter choice: 4
+Stack elements: 30 20 10
+
+Enter choice: 2
+30 popped from stack
+
+Enter choice: 3
+Top element is 20
+      result:
+           After pushing 10, 20, 30 and popping once, the stack becomes:20 10
+           Top = 20 and hence we found the stack using linked list.
+
